@@ -1,0 +1,15 @@
+.lein-cljsbuild-compiler-0
+.lein-cljsbuild-repl
+.lein-plugins
+.lein-deps-sum
+*.swn
+*.swo
+*.swp
+pom.xml
+out/
+lib/
+classes/
+target/
+.hlisp-work-dir/
+.lein-repl-history
+test/src/
