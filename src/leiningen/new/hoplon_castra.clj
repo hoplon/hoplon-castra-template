@@ -27,8 +27,7 @@
                  :nested-dirs (t/name-to-path main-ns)
                  :boot-task-v boot-task-v
                  :hoplon-v    hoplon-v
-                 ;:clojurescript-v clojurescript-v
-                 :clojurescript-v "0.0-2156"
+                 :clojurescript-v clojurescript-v
                  ; boot.ring only has a SNAPSHOT version
                  ;:boot-ring-v boot-ring-v
                  :boot-ring-v "0.1.0-SNAPSHOT"
