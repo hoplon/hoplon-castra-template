@@ -16,19 +16,12 @@
 (add-sync! (get-env :out-path) #{"assets"})
 
 (require '[tailrecursion.hoplon.boot :refer :all]
-         '[tailrecursion.castra.handler   :as c]
-         '[tailrecursion.boot.task.ring   :as r])
-
-(deftask castra
-  [& specs]
-  (r/ring-task (fn [_] (apply c/castra specs))))
+         '[tailrecursion.castra.task :as c])
 
 (deftask development
   "Build {{raw-name}} for development."
   []
-  (comp (watch) (hoplon {:prerender false})
-        (r/head) (r/dev-mode) (r/session-cookie) (r/files)
-        (castra '{{namespace}}.api) (r/jetty)))
+  (comp (watch) (hoplon {:prerender false}) (c/castra-dev-server '{{namespace}}.api)))
 
 (deftask production
   "Build {{raw-name}} for production."
