@@ -28,9 +28,7 @@
                  :boot-task-v boot-task-v
                  :hoplon-v    hoplon-v
                  :clojurescript-v clojurescript-v
-                 ; boot.ring only has a SNAPSHOT version
-                 ;:boot-ring-v boot-ring-v
-                 :boot-ring-v "0.1.0-SNAPSHOT"
+                 :boot-ring-v boot-ring-v
                  :dependencies (latest-deps-strs deps)
                  :require-tasks '#{[tailrecursion.boot.task :refer :all]
                                    [tailrecursion.hoplon.boot :refer :all]}
