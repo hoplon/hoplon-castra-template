@@ -27,7 +27,8 @@
                  :nested-dirs (t/name-to-path main-ns)
                  :boot-task-v boot-task-v
                  :hoplon-v    hoplon-v
-                 :clojurescript-v clojurescript-v
+                 ; :clojurescript-v clojurescript-v
+                 :clojurescript-v "0.0-2234"
                  :boot-ring-v boot-ring-v
                  :dependencies (latest-deps-strs deps)
                  :require-tasks '#{[tailrecursion.boot.task :refer :all]
