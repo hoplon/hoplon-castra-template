@@ -6,9 +6,7 @@
   :project      '{{raw-name}}
   :version      "0.1.0-SNAPSHOT"
   :dependencies '[[tailrecursion/boot.task   "{{boot-task-v}}"]
-                  [tailrecursion/hoplon      "{{hoplon-v}}"]
-                  [org.clojure/clojurescript "{{clojurescript-v}}"]
-                  [tailrecursion/boot.ring   "{{boot-ring-v}}"]]
+                  [tailrecursion/hoplon      "{{hoplon-v}}"]]
   :out-path     "resources/public"
   :src-paths    #{"src/hl" "src/cljs" "src/clj"})
 

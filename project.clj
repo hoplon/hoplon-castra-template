@@ -1,4 +1,4 @@
-(defproject hoplon-castra/lein-template "0.2.1"
+(defproject hoplon-castra/lein-template "0.2.2"
   :description        "Create new Hoplon projects with Castra"
   :url                "http://github.com/tailrecursion/hoplon-castra-template/"
   :license            {:name  "Eclipse Public License"
