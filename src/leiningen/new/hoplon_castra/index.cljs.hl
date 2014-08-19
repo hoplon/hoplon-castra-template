@@ -1,12 +1,13 @@
 (page "index.html"
-  (:require [{{namespace}}.rpc :as rpc]))
+  (:require
+    [{{namespace}}.rpc :as rpc]
+    [tailrecursion.hoplon.reload :refer [reload-all]]))
 
-(defc= random rpc/random-number)
+(reload-all 1000)
 
 (rpc/init)
 
 (html
-  (head
-    (link :rel "stylesheet" :type "text/css" :href "css/main.css"))
+  (head)
   (body
-    (h1 (text "Hello, Hoplon and Castra! ~{random}"))))
+    (h1 (text "Hello, Hoplon and Castra! ~{rpc/random-number}"))))

@@ -21,6 +21,13 @@
   []
   (comp (watch) (hoplon {:prerender false}) (c/castra-dev-server '{{namespace}}.api)))
 
+(deftask dev-debug
+  "Build {{raw-name}} for development with source maps."
+  []
+  (comp (watch) (hoplon {:pretty-print true
+                         :prerender false
+                         :source-map true}) (c/castra-dev-server '{{namespace}}.api)))
+
 (deftask production
   "Build {{raw-name}} for production."
   []

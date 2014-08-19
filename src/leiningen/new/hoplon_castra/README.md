@@ -17,7 +17,7 @@ A Hoplon project with Castra designed to...well, that part is up to you.
     ```
 
 2. Go to [http://localhost:8000][3] in your browser. You should see "Hello,
-Hoplon and Castra! with random numbers that are generated on the server and
+Hoplon and Castra!" with random numbers that are generated on the server and
 transmited to the client. But you should change that to what you want.
 
 3. You're already done.
