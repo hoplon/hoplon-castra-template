@@ -8,7 +8,7 @@
     tailrecursion/hoplon])
 
 (defn latest-deps-strs [deps]
-  (mapv (partial latest-version-string! {:snapshots? false}) deps))
+  (mapv #(latest-version-string! % {:snapshots? false}) deps))
 
 (defn hoplon-castra
   "Create new Hoplon project."
