@@ -1,5 +1,4 @@
 /.boot/
-/resources/public/
 /.nrepl-port
 /.repl-history
 /.lein-*

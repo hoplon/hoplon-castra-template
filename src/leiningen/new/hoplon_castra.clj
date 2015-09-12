@@ -3,36 +3,64 @@
             [ancient-clj.core        :refer [latest-version-string!]]))
 
 (def deps
-  '[tailrecursion/boot.core
-    tailrecursion/boot.task
-    tailrecursion/hoplon])
+  '[adzerk/boot-cljs
+    adzerk/boot-reload
+    boot/core
+    castra/castra
+    compojure
+    hoplon/boot-hoplon
+    hoplon/hoplon
+    org.clojure/clojurescript
+    pandeiro/boot-http
+    ring/ring
+    ring/ring-defaults])
 
 (defn latest-deps-strs [deps]
   (mapv #(latest-version-string! % {:snapshots? false}) deps))
 
 (defn hoplon-castra
-  "Create new Hoplon project."
+  "Create new Hoplon project with Castra."
   [name]
-  (let [[boot-core-v boot-task-v hoplon-v] (latest-deps-strs deps)
+  (let [[boot-cljs-v
+         boot-reload-v
+         boot-core-v
+         castra-v
+         compojure-v
+         boot-hoplon-v
+         hoplon-v
+         clojurescript-v
+         boot-http-v
+         ring-v
+         ring-defaults-v] (latest-deps-strs deps)
+        castra-v "3.0.0-SNAPSHOT"
+        clojure-v "1.7.0"
         render  (t/renderer "hoplon-castra")
         main-ns (t/sanitize-ns name)
-        data    {:raw-name    name
-                 :boot-core-v boot-core-v
-                 :namespace   main-ns
-                 :nested-dirs (t/name-to-path main-ns)
-                 :boot-task-v boot-task-v
-                 :hoplon-v    hoplon-v
-                 :dependencies (latest-deps-strs deps)
-                 :require-tasks '#{[tailrecursion.boot.task :refer :all]
-                                   [tailrecursion.hoplon.boot :refer :all]}
-                 :name        (t/project-name name)
-                 :year        (t/year)}]
+        data    {:raw-name        name
+                 :clojure-v       clojure-v
+                 :boot-cljs-v     boot-cljs-v
+                 :boot-reload-v   boot-reload-v
+                 :boot-core-v     boot-core-v
+                 :castra-v        castra-v
+                 :compojure-v     compojure-v
+                 :boot-hoplon-v   boot-hoplon-v
+                 :hoplon-v        hoplon-v
+                 :clojurescript-v clojurescript-v
+                 :boot-http-v     boot-http-v
+                 :ring-v          ring-v
+                 :ring-defaults-v ring-defaults-v
+                 :namespace       main-ns
+                 :nested-dirs     (t/name-to-path main-ns)
+                 :name            (t/project-name name)
+                 :year            (t/year)}]
     (t/->files data
-               ["README.md"           (render "README.md"      data)]
-               ["build.boot"          (render "build.boot"     data)]
-               ["src/hl/main.inc.css" (render "main.inc.css"   data)]
-               [".gitignore"          (render "gitignore"      data)]
+               ["README.md"           (render "README.md"       data)]
+               ["build.boot"          (render "build.boot"      data)]
+               ["boot.properties"     (render "boot.properties" data)]
+               ["assets/app.css"      (render "app.css"         data)]
+               [".gitignore"          (render "gitignore"       data)]
                ["src/hl/{{nested-dirs}}/index.cljs.hl" (render "index.cljs.hl"  data)]
                ["src/clj/{{nested-dirs}}/api.clj"      (render "api.clj"  data)]
                ["src/clj/{{nested-dirs}}/core.clj"     (render "core.clj" data)]
+               ["src/clj/{{nested-dirs}}/handler.clj"  (render "handler.clj" data)]
                ["src/cljs/{{nested-dirs}}/rpc.cljs"    (render "rpc.cljs" data)])))

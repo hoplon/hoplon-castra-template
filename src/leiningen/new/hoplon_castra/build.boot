@@ -1,34 +1,42 @@
-#!/usr/bin/env boot
-
-#tailrecursion.boot.core/version "{{boot-core-v}}"
-
 (set-env!
-  :project      '{{raw-name}}
-  :version      "0.1.0-SNAPSHOT"
-  :dependencies '[[tailrecursion/boot.task   "{{boot-task-v}}"]
-                  [tailrecursion/hoplon      "{{hoplon-v}}"]]
-  :out-path     "resources/public"
-  :src-paths    #{"src/hl" "src/cljs" "src/clj"})
+  :dependencies '[[adzerk/boot-cljs          "{{boot-cljs-v}}"]
+                  [adzerk/boot-reload        "{{boot-reload-v}}"]
+                  [castra                    "{{castra-v}}"]
+                  [compojure                 "{{compojure-v}}"]
+                  [hoplon/boot-hoplon        "{{boot-hoplon-v}}"]
+                  [hoplon/hoplon             "{{hoplon-v}}"]
+                  [org.clojure/clojure       "{{clojure-v}}"]
+                  [org.clojure/clojurescript "{{clojurescript-v}}"]
+                  [pandeiro/boot-http        "{{boot-http-v}}"]
+                  [ring                      "{{ring-v}}"]
+                  [ring/ring-defaults        "{{ring-defaults-v}}"]]
+  :resource-paths #{"assets"}
+  :source-paths   #{"src/clj" "src/cljs" "src/hl"})
 
-;; Static resources (css, images, etc.):
-(add-sync! (get-env :out-path) #{"assets"})
+(require
+  '[adzerk.boot-cljs   :refer [cljs]]
+  '[adzerk.boot-reload :refer [reload]]
+  '[hoplon.boot-hoplon :refer [hoplon prerender]]
+  '[pandeiro.boot-http :refer [serve]])
 
-(require '[tailrecursion.hoplon.boot :refer :all]
-         '[tailrecursion.castra.task :as c])
-
-(deftask development
-  "Build {{raw-name}} for development."
+(deftask dev
+  "Build {{raw-name}} for local development."
   []
-  (comp (watch) (hoplon {:prerender false}) (c/castra-dev-server '{{namespace}}.api)))
+  (comp
+    (serve
+      :port    8000
+      :handler '{{namespace}}.handler/app
+      :reload  true)
+    (watch)
+    (speak)
+    (hoplon)
+    (reload)
+    (cljs)))
 
-(deftask dev-debug
-  "Build {{raw-name}} for development with source maps."
+(deftask prod
+  "Build {{raw-name}} for production deployment."
   []
-  (comp (watch) (hoplon {:pretty-print true
-                         :prerender false
-                         :source-map true}) (c/castra-dev-server '{{namespace}}.api)))
-
-(deftask production
-  "Build {{raw-name}} for production."
-  []
-  (hoplon {:optimizations :advanced}))
+  (comp
+    (hoplon)
+    (cljs :optimizations :advanced)
+    (prerender)))

@@ -1,5 +1,5 @@
 (ns {{namespace}}.api
-  (:require [tailrecursion.castra :refer [defrpc]]))
+  (:require [castra.core :refer [defrpc]]))
 
 (defrpc get-state []
   {:random (rand-int 100)})
