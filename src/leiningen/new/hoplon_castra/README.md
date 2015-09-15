@@ -1,6 +1,6 @@
 # {{name}}
 
-A Hoplon project with Castra designed to...well, that part is up to you.
+A [Hoplon][4] project with Castra designed to...well, that part is up to you.
 
 ## Dependencies
 
@@ -26,6 +26,7 @@ transmited to the client. But you should change that to what you want.
 
 Copyright © {{year}}, **Your Name Goes Here**
 
-[1]: https://github.com/tailrecursion/boot
+[1]: https://github.com/boot-clj/boot
 [2]: https://github.com/technomancy/leiningen
 [3]: http://localhost:8000
+[4]: https://hoplon.io

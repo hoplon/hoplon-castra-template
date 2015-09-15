@@ -6,9 +6,9 @@
   '[adzerk/boot-cljs
     adzerk/boot-reload
     boot/core
-    castra/castra
     compojure
     hoplon/boot-hoplon
+    hoplon/castra
     hoplon/hoplon
     org.clojure/clojurescript
     pandeiro/boot-http
@@ -24,9 +24,9 @@
   (let [[boot-cljs-v
          boot-reload-v
          boot-core-v
-         castra-v
          compojure-v
          boot-hoplon-v
+         castra-v
          hoplon-v
          clojurescript-v
          boot-http-v
