@@ -4,6 +4,7 @@
 
 (def deps
   '[adzerk/boot-cljs
+    adzerk/boot-cljs-repl
     adzerk/boot-reload
     boot/core
     compojure
@@ -22,6 +23,7 @@
   "Create new Hoplon project with Castra."
   [name]
   (let [[boot-cljs-v
+         boot-cljs-repl-v
          boot-reload-v
          boot-core-v
          compojure-v
@@ -37,22 +39,23 @@
         render  (t/renderer "hoplon-castra")
         main-ns (t/sanitize-ns name)
         data    {:raw-name        name
-                 :clojure-v       clojure-v
-                 :boot-cljs-v     boot-cljs-v
-                 :boot-reload-v   boot-reload-v
-                 :boot-core-v     boot-core-v
-                 :castra-v        castra-v
-                 :compojure-v     compojure-v
-                 :boot-hoplon-v   boot-hoplon-v
-                 :hoplon-v        hoplon-v
-                 :clojurescript-v clojurescript-v
-                 :boot-http-v     boot-http-v
-                 :ring-v          ring-v
-                 :ring-defaults-v ring-defaults-v
-                 :namespace       main-ns
-                 :nested-dirs     (t/name-to-path main-ns)
-                 :name            (t/project-name name)
-                 :year            (t/year)}]
+                 :boot-cljs-repl-v boot-cljs-repl-v
+                 :boot-cljs-v      boot-cljs-v
+                 :boot-core-v      boot-core-v
+                 :boot-hoplon-v    boot-hoplon-v
+                 :boot-http-v      boot-http-v
+                 :boot-reload-v    boot-reload-v
+                 :castra-v         castra-v
+                 :clojure-v        clojure-v
+                 :clojurescript-v  clojurescript-v
+                 :compojure-v      compojure-v
+                 :hoplon-v         hoplon-v
+                 :ring-defaults-v  ring-defaults-v
+                 :ring-v           ring-v
+                 :namespace        main-ns
+                 :nested-dirs      (t/name-to-path main-ns)
+                 :name             (t/project-name name)
+                 :year             (t/year)}]
     (t/->files data
                ["README.md"           (render "README.md"       data)]
                ["build.boot"          (render "build.boot"      data)]

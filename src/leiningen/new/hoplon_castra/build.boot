@@ -1,5 +1,6 @@
 (set-env!
   :dependencies '[[adzerk/boot-cljs          "{{boot-cljs-v}}"]
+                  [adzerk/boot-cljs-repl     "{{boot-cljs-repl-v}}"]
                   [adzerk/boot-reload        "{{boot-reload-v}}"]
                   [compojure                 "{{compojure-v}}"]
                   [hoplon/boot-hoplon        "{{boot-hoplon-v}}"]
@@ -14,10 +15,11 @@
   :source-paths   #{"src/clj" "src/cljs" "src/hl"})
 
 (require
-  '[adzerk.boot-cljs   :refer [cljs]]
-  '[adzerk.boot-reload :refer [reload]]
-  '[hoplon.boot-hoplon :refer [hoplon prerender]]
-  '[pandeiro.boot-http :refer [serve]])
+  '[adzerk.boot-cljs      :refer [cljs]]
+  '[adzerk.boot-cljs-repl :refer [cljs-repl start-repl]]
+  '[adzerk.boot-reload    :refer [reload]]
+  '[hoplon.boot-hoplon    :refer [hoplon prerender]]
+  '[pandeiro.boot-http    :refer [serve]])
 
 (deftask dev
   "Build {{raw-name}} for local development."
@@ -31,6 +33,7 @@
     (speak)
     (hoplon)
     (reload)
+    (cljs-repl)
     (cljs)))
 
 (deftask prod
