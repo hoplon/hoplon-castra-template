@@ -1,12 +1,7 @@
-/target
-/classes
-/checkouts
+.nrepl-*
+.repl/
+hs_err*
+out/
 pom.xml
 pom.xml.asc
-*.jar
-*.class
-/.lein-*
-/.nrepl-port
-out/
-lib/
-.hlisp-work-dir/
+target/
