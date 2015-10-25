@@ -1,6 +1,6 @@
 # {{name}}
 
-A [Hoplon][4] project with Castra[2] designed to...well, that part is up to you.
+A [Hoplon][4] project with [Castra][2] designed to...well, that part is up to you.
 
 ## Dependencies
 
@@ -19,23 +19,11 @@ A [Hoplon][4] project with Castra[2] designed to...well, that part is up to you.
     - auto reload the html page on changes
     - Clojurescript REPL
 
-
 2. Go to [http://localhost:8000][3] in your browser. You should see "Hello,
 Hoplon and Castra!" with random numbers that are generated on the server and
 transmited to the client. But you should change that to what you want.
 
-3. To use the Clojurescript REPL on another terminal run:
-    ```bash
-    $ boot repl -c
-    ```
-    ```clj
-    boot.user=> (start-repl)
-    ...
-    cljs.user=> (.alert js/window "From the Clojurescript REPL")
-    ```
-    You should see a popup on the browser.
-
-4. If you edit and save a file, the task will recompile the code and reload the
+3. If you edit and save a file, the task will recompile the code and reload the
    browser to show the updated version.
 
 .### Production

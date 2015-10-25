@@ -4,7 +4,6 @@
 
 (def deps
   '[adzerk/boot-cljs
-    adzerk/boot-cljs-repl
     adzerk/boot-reload
     boot/core
     compojure
@@ -23,7 +22,6 @@
   "Create new Hoplon project with Castra."
   [name]
   (let [[boot-cljs-v
-         boot-cljs-repl-v
          boot-reload-v
          boot-core-v
          compojure-v
@@ -39,7 +37,6 @@
         render  (t/renderer "hoplon-castra")
         main-ns (t/sanitize-ns name)
         data    {:raw-name        name
-                 :boot-cljs-repl-v boot-cljs-repl-v
                  :boot-cljs-v      boot-cljs-v
                  :boot-core-v      boot-core-v
                  :boot-hoplon-v    boot-hoplon-v
