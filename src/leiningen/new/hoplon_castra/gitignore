@@ -1,7 +1,5 @@
-/.boot/
-/.nrepl-port
-/.repl-history
-/.lein-*
-/target
-/classes
-/checkouts
+.nrepl-*
+.repl/
+hs_err*
+out/
+target/
