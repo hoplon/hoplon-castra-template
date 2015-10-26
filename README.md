@@ -1,6 +1,6 @@
 # hoplon-castra
 
-A Leiningen template for creating new Hoplon projects with Castra.
+A Leiningen template for creating new Hoplon projects with Castra and deploying them to Heroku.
 
 ## Usage
 
