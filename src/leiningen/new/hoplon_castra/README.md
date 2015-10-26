@@ -34,6 +34,15 @@ transmited to the client. But you should change that to what you want.
 2. The compiled files will be on the `target/` directory. This will use
    advanced compilation and prerender the html.
 
+### Deployment
+
+You can easily deploy this application for free to [Heroku][5].
+
+1. Get a Heroku account and install the [Heroku toolbelt][6]
+1. Create an application in the Heroku dashboard
+1. Build a WAR file with `boot make-war`
+1. Follow [these instructions][7] to deploy the WAR to Heroku using the `heroku` tool.
+
 ## License
 
 Copyright © {{year}}, **Your Name Goes Here**
@@ -42,3 +51,6 @@ Copyright © {{year}}, **Your Name Goes Here**
 [2]: https://github.com/hoplon/castra
 [3]: http://localhost:8000
 [4]: https://hoplon.io
+[5]: https://www.heroku.com/
+[6]: https://toolbelt.heroku.com/
+[7]: https://devcenter.heroku.com/articles/war-deployment#deployment-with-the-heroku-toolbelt
