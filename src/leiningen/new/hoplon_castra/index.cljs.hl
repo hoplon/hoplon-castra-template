@@ -8,4 +8,5 @@
   (head
     (link :href "app.css" :rel "stylesheet"))
   (body
-    (h1 (text "Hello, Hoplon and Castra! ~{rpc/random-number}"))))
+    (h1 (text "Hello, Hoplon and Castra!"))
+    (tt (text "session = ~{rpc/session-number}, random = ~{rpc/random-number}"))))

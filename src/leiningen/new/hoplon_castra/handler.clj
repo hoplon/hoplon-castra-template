@@ -1,17 +1,22 @@
 (ns {{namespace}}.handler
   (:require
-    [compojure.core :as c]
-    [compojure.route :as route]
-    [ring.middleware.defaults :as d]
-    [ring.util.response :as response]
-    [castra.middleware :as castra]))
+    [compojure.core                 :refer [defroutes GET]]
+    [compojure.route                :refer [resources]]
+    [ring.middleware.defaults       :refer [wrap-defaults api-defaults]]
+    [ring.util.response             :refer [content-type resource-response]]
+    [ring.middleware.session        :refer [wrap-session]]
+    [ring.middleware.session.cookie :refer [cookie-store]]
+    [castra.middleware              :refer [wrap-castra]]))
 
-(c/defroutes app-routes
-  (c/GET "/" req (response/content-type (response/resource-response "index.html") "text/html"))
-  (route/resources "/" {:root ""}))
+(defroutes app-routes
+  (GET "/" req
+    (-> "index.html"
+        (resource-response)
+        (content-type "text/html")))
+  (resources "/" {:root ""}))
 
 (def app
   (-> app-routes
-      (d/wrap-defaults d/api-defaults)
-      (castra/wrap-castra-session "a 16-byte secret")
-      (castra/wrap-castra '{{namespace}}.api)))
+      (wrap-castra '{{namespace}}.api)
+      (wrap-session {:store (cookie-store "a 16-byte secret")})
+      (wrap-defaults api-defaults)))

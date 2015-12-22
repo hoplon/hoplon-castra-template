@@ -1,5 +1,6 @@
 (ns {{namespace}}.api
-  (:require [castra.core :refer [defrpc]]))
+  (:require [castra.core :refer [defrpc *session*]]))
 
 (defrpc get-state []
-  {:random (rand-int 100)})
+  (swap! *session* update-in [:id] #(or % (rand-int 100)))
+  {:random (rand-int 100) :session (:id @*session*)})
