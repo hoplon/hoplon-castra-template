@@ -10,6 +10,6 @@ $ lein new hoplon-castra my-project-name
 
 ## License
 
-Copyright © 2013 Micha Niskin, Alan Dipert and Marcelo Nomoto
+Copyright © 2013-2016 Micha Niskin, Alan Dipert and Marcelo Nomoto
 
 Distributed under the Eclipse Public License, the same as Clojure.
