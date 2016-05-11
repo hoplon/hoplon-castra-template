@@ -48,4 +48,5 @@
         (cljs :optimizations :advanced)
         (uber :as-jars true)
         (web :serve 'my-app.handler/app)
-        (war)))
+        (war)
+        (target :dir #{"target"})))
