@@ -10,7 +10,7 @@
                   [pandeiro/boot-http        "{{boot-http-v}}"]
                   [ring                      "{{ring-v}}"]
                   [ring/ring-defaults        "{{ring-defaults-v}}"]]
-  :resource-paths #{"assets" "src/clj"}
+  :resource-paths #{"resources" "src/clj"}
   :source-paths   #{"src/cljs" "src/hl"})
 
 (require
