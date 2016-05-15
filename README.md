@@ -9,9 +9,10 @@ $ lein new hoplon-castra my-project-name
 ```
 
 ## Deployment
-
+To deploy a war file to Heroku:
 ```bash
 $ boot make-war
+(first time only) $ heroku plugins:install https://github.com/heroku/heroku-deploy
 $ heroku deploy:war --war target/project.war --app <your-app-name>
 ```
 To deploy a standalone `jar`, add the following to your `build.boot` file:
