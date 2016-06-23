@@ -33,7 +33,7 @@
          ring-v
          ring-defaults-v] (latest-deps-strs deps)
         castra-v "3.0.0-SNAPSHOT"
-        clojure-v "1.7.0"
+        clojure-v "1.8.0"
         render  (t/renderer "hoplon-castra")
         main-ns (t/sanitize-ns name)
         data    {:raw-name        name
