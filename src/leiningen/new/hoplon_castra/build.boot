@@ -2,14 +2,17 @@
   :dependencies '[[adzerk/boot-cljs          "{{boot-cljs-v}}"]
                   [adzerk/boot-reload        "{{boot-reload-v}}"]
                   [compojure                 "{{compojure-v}}"]
-                  [hoplon/boot-hoplon        "{{boot-hoplon-v}}"]
                   [hoplon/castra             "{{castra-v}}"]
                   [hoplon/hoplon             "{{hoplon-v}}"]
                   [org.clojure/clojure       "{{clojure-v}}"]
                   [org.clojure/clojurescript "{{clojurescript-v}}"]
                   [pandeiro/boot-http        "{{boot-http-v}}"]
                   [ring                      "{{ring-v}}"]
-                  [ring/ring-defaults        "{{ring-defaults-v}}"]]
+                  [ring/ring-defaults        "{{ring-defaults-v}}"]
+                  [adzerk/boot-cljs-repl     "{{boot-cljs-repl-v}}"]
+                  [com.cemerick/piggieback   "{{piggieback-v}}"  :scope "test"]
+                  [weasel                    "{{weasel-v}}"      :scope "test"]
+                  [org.clojure/tools.nrepl   "{{tools-nrepl-v}}" :scope "test"]]
   :resource-paths #{"resources" "src/clj"}
   :source-paths   #{"src/cljs" "src/hl"})
 
