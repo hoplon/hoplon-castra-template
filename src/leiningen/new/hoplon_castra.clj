@@ -9,7 +9,7 @@
         boot-core-v      "2.7.1"
         boot-http-v      "0.7.6"
         boot-reload-v    "0.5.1"
-        castra-v         "3.0.0-SNAPSHOT"
+        castra-v         "3.0.0-alpha7"
         clojure-v        "1.8.0"
         clojurescript-v  "1.9.495"
         compojure-v      "1.6.0-beta3"
