@@ -1,11 +1,12 @@
 # hoplon-castra
 
-A Leiningen template for creating new Hoplon projects with Castra and deploying them to Heroku.
+A [Boot](http://boot-clj.com) and Leiningen template for creating new Boot-based
+Hoplon projects with Castra and deploying them to Heroku.
 
 ## Usage
 
 ```bash
-$ lein new hoplon-castra my-project-name
+$ boot -d boot/new new -t hoplon-castra -n my-project-nake
 ```
 
 ## Deployment
