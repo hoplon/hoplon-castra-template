@@ -40,6 +40,7 @@
                  :namespace        main-ns
                  :nested-dirs      (t/name-to-path main-ns)
                  :name             (t/project-name name)
+                 :munged-name      (munge (t/project-name name))
                  :year             (t/year)}]
     (t/->files data
                ["README.md"           (render "README.md"       data)]

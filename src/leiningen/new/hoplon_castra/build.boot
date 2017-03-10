@@ -50,6 +50,6 @@
   (comp (hoplon)
         (cljs :optimizations :advanced)
         (uber :as-jars true)
-        (web :serve '{{namespace}}.handler/app)
+        (web :serve '{{munged-name}}.handler/app)
         (war)
         (target :dir #{"target"})))
