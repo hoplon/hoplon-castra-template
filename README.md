@@ -10,13 +10,17 @@ $ boot -d boot/new new -t hoplon-castra -n my-project-nake
 ```
 
 ## Deployment
+
 To deploy a war file to Heroku:
+
 ```bash
 $ boot make-war
-(first time only) $ heroku plugins:install https://github.com/heroku/heroku-deploy
-$ heroku deploy:war --war target/project.war --app <your-app-name>
+(first time only) $ heroku plugins:install heroku-cli-deploy
+$ heroku war:deploy target/project.war --app <your-app-name>
 ```
+
 To deploy a standalone `jar`, add the following to your `build.boot` file:
+
 ```clojure
 (deftask build-jar
   "Builds a standalone jar."
@@ -30,7 +34,9 @@ To deploy a standalone `jar`, add the following to your `build.boot` file:
         (sift :include #{#"\.jar$"})
         (target :dir #{"target"})))
 ```
+
 then
+
 ```bash
 boot build-jar
 heroku deploy:jar --jar target/project.jar --app <your-app-name>
@@ -46,6 +52,6 @@ heroku deploy:jar --jar target/project.jar --app <your-app-name>
 
 ## License
 
-Copyright © 2013-2016 Micha Niskin, Alan Dipert and Marcelo Nomoto
+Copyright © 2013-2020 Micha Niskin, Alan Dipert and Marcelo Nomoto
 
 Distributed under the Eclipse Public License, the same as Clojure.

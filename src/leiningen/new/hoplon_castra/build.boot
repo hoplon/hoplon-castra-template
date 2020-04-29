@@ -19,7 +19,7 @@
 (require
   '[adzerk.boot-cljs      :refer [cljs]]
   '[adzerk.boot-reload    :refer [reload]]
-  '[hoplon.boot-hoplon    :refer [hoplon prerender]]
+  '[hoplon.boot-hoplon    :refer [hoplon]]
   '[pandeiro.boot-http    :refer [serve]])
 
 (deftask dev
@@ -31,7 +31,7 @@
       :handler '{{namespace}}.handler/app
       :reload  true)
     (watch)
-    (speak)
+    (notify)
     (hoplon)
     (reload)
     (cljs)))
@@ -41,14 +41,14 @@
   []
   (comp
     (hoplon)
-    (cljs :optimizations :advanced)
-    (prerender)))
+    (cljs :optimizations :simple)
+    (target :dir #{"target"})))
 
 (deftask make-war
   "Build a war for deployment"
   []
   (comp (hoplon)
-        (cljs :optimizations :advanced)
+        (cljs :optimizations :simple)
         (uber :as-jars true)
         (web :serve '{{munged-name}}.handler/app)
         (war)
